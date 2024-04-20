@@ -1,0 +1,51 @@
+{
+  "name": "backend-project",
+  "version": "1.0.0",
+  "description": "Backend project for handling bulk Instagram DM automation",
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": [
+    "backend",
+    "Instagram",
+    "DM",
+    "automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/backend-project.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "puppeteer": "^10.4.0",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "eslint": "^8.5.0",
+    "jest": "^27.4.7"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint .",
+    "test": "jest"
+  }
+}
+
+
+
+// In this example, the code defines the "package.json" file with the necessary metadata, dependencies, and scripts.
+
+// The metadata fields include the project name, version, description, author, license, keywords, and repository information. Modify these fields according to your project's details.
+
+// The dependencies field lists the runtime dependencies required for the backend application, such as Express.js, Puppeteer, and dotenv. The devDependencies field lists the development dependencies needed for development and testing, such as nodemon, eslint, and jest.
+
+// The scripts field defines several scripts for common tasks. The "start" script runs the application using the "node app.js" command. The "dev" script uses nodemon to automatically restart the server during development. The "lint" script runs ESLint to lint the codebase. The "test" script runs Jest to execute tests.
+
+// To install the project dependencies, run the `npm install` command in the terminal. This will install both the runtime and development dependencies listed in the "package.json" file.
+
+// You can then test the project setup by running the defined scripts, such as `npm start` to start the server and `npm test` to run tests. Verify that the dependencies are installed correctly and the scripts execute without errors.
+
+// Remember to document the purpose and usage of each script defined in the "package.json" file. Provide comments and annotations to explain the functionality and behavior of each script.
+
+// Continuously update the "package.json" file as needed to add or remove dependencies and scripts. Maintain consistency between dependencies and scripts to ensure smooth project operation.

@@ -1,0 +1,68 @@
+// Import required libraries and services
+const automationService = require('../services/automationService');
+
+// Define and export the controller functions
+module.exports = {
+  // Controller function to handle bulk DM automation
+  async automateBulkDM(req, res) {
+    try {
+      // Extract necessary data from the request
+      const { usernames, message } = req.body;
+
+      // Validate the input data
+      if (!usernames || !message) {
+        return res.status(400).json({ error: 'Invalid input data' });
+      }
+
+      // Perform the bulk DM automation using the automation service
+      const result = await automationService.bulkDM(usernames, message);
+
+      // Send the result back to the extension
+      res.json(result);
+    } catch (error) {
+      // Handle any errors that occur during the execution
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  },
+
+  // Controller function to handle other types of requests
+  async otherRequestHandler(req, res) {
+    try {
+      // Extract necessary data from the request
+      const { param1, param2 } = req.body;
+
+      // Validate the input data
+      if (!param1 || !param2) {
+        return res.status(400).json({ error: 'Invalid input data' });
+      }
+
+      // Perform the necessary actions based on the request
+      // Example: Call a service function to process the request
+      const result = await automationService.processRequest(param1, param2);
+
+      // Send the result back to the extension
+      res.json(result);
+    } catch (error) {
+      // Handle any errors that occur during the execution
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  },
+
+  // Add more controller functions as needed
+};
+
+
+
+In this example, the code defines two controller functions within the `dmController.js` file. The first function, `automateBulkDM`, handles requests related to bulk DM automation. It expects the `usernames` and `message` as input data from the request body.
+
+The function validates the input data and returns a 400 response if it's invalid. Then, it calls the `bulkDM` function from the `automationService` to perform the actual bulk DM automation. This function can be implemented in the `automationService.js` file and encapsulate the complex logic or interactions with external dependencies.
+
+After the automation is completed, the function sends the result back to the extension as a JSON response.
+
+The second function, `otherRequestHandler`, is a placeholder for handling other types of requests from the extension. It follows a similar structure as the first function, where it extracts and validates the input data, performs the necessary actions based on the request, and sends the result back to the extension.
+
+Error handling is implemented using a try-catch block to catch any unexpected errors that may occur during the execution. If an error occurs, it is logged to the console and a 500 response with an error message is sent back to the extension.
+
+Remember to integrate the controller functions with the appropriate routes defined in `dmRoutes.js` and write unit tests to validate the functionality of each controller function. Also, provide comments and documentation within the controller file to explain the purpose, inputs, outputs, and usage of each function
